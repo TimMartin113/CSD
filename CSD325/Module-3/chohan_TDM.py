@@ -13,6 +13,8 @@ print('''Cho-Han, by Al Sweigart al@inventwithpython.com
 In this traditional Japanese dice game, two dice are rolled in a bamboo
 cup by the dealer sitting on the floor. The player must guess if the
 dice total to an even (cho) or odd (han) number.
+
+Bonus: If the total of the dice roll is 2 or 7, you will recieve a 10 mon bonus.
 ''')
 
 purse = 5000
@@ -20,7 +22,7 @@ while True:  # Main game loop.
     # Place your bet:
     print('You have', purse, 'mon. How much do you bet? (or QUIT)')
     while True:
-        pot = input('> ')
+        pot = input('TDM: ') # Updated to include my initials.
         if pot.upper() == 'QUIT':
             print('Thanks for playing!')
             sys.exit()
@@ -45,7 +47,7 @@ while True:  # Main game loop.
 
     # Let the player bet cho or han:
     while True:
-        bet = input('> ').upper()
+        bet = input('TDM: ').upper() # Updated to include my initials. 
         if bet != 'CHO' and bet != 'HAN':
             print('Please enter either "CHO" or "HAN".')
             continue
@@ -56,6 +58,13 @@ while True:  # Main game loop.
     print('The dealer lifts the cup to reveal:')
     print('  ', JAPANESE_NUMBERS[dice1], '-', JAPANESE_NUMBERS[dice2])
     print('    ', dice1, '-', dice2)
+
+    # Award bonus for rolling a total of 2 or 7.
+    rollTotal = dice1 + dice2
+
+    if rollTotal == 2 or rollTotal == 7:
+        print('The total roll was', rollTotal, 'and you received a 10 mon bonus!')
+        purse += 10
 
     # Determine if the player won:
     rollIsEven = (dice1 + dice2) % 2 == 0
@@ -70,8 +79,10 @@ while True:  # Main game loop.
     if playerWon:
         print('You won! You take', pot, 'mon.')
         purse = purse + pot  # Add the pot from player's purse.
-        print('The house collects a', pot // 10, 'mon fee.')
-        purse = purse - (pot // 10)  # The house fee is 10%.
+        # change: house fee increased from 10% to 12%.
+        houseFee = int(pot * 0.12)
+        print('The house collects a', houseFee, 'mon fee.')
+        purse = purse - houseFee
     else:
         purse = purse - pot  # Subtract the pot from player's purse.
         print('You lost!')
