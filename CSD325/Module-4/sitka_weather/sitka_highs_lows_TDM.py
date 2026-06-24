@@ -49,15 +49,15 @@ def display_lows():
         reader = csv.reader(f)
         header_row = next(reader)
 
-        dates, highs = [], []
+        dates, lows = [], []
         for row in reader:
             current_date = datetime.strptime(row[2], '%Y-%m-%d')
             dates.append(current_date)
-            high = int(row[6])
-            highs.append(high)
+            low = int(row[6])
+            lows.append(low)
 
     fig, ax = plt.subplots()
-    ax.plot(dates, highs, c='blue')
+    ax.plot(dates, lows, c='blue')
 
     # Format plot.
     plt.title("Daily high temperatures - 2018", fontsize=24)
