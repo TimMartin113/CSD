@@ -60,7 +60,7 @@ def display_lows():
     ax.plot(dates, lows, c='blue')
 
     # Format plot.
-    plt.title("Daily high temperatures - 2018", fontsize=24)
+    plt.title("Daily low temperatures - 2018", fontsize=24)
     plt.xlabel('', fontsize=16)
     fig.autofmt_xdate()
     plt.ylabel("Temperature (F)", fontsize=16)
