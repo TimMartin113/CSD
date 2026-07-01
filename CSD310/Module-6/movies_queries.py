@@ -58,11 +58,11 @@ try:
 
     cursor.execute("""
 
-        SELECT film_name, runtime
+        SELECT film_name, film_runtime
 
         FROM film
 
-        WHERE runtime < 120
+        WHERE film_runtime < 120
 
     """)
 
@@ -70,7 +70,7 @@ try:
 
         print("Film Name: {}".format(film[0]))
 
-        print("Runtime: {}\n".format(film[1]))
+        print("Runtime: {}".format(film[1]))
 
     # Display Director records
 
@@ -78,11 +78,11 @@ try:
 
     cursor.execute("""
 
-        SELECT film_name, director
+        SELECT film_name, film_director
 
         FROM film
 
-        ORDER BY director
+        ORDER BY film_director
 
     """)
 
