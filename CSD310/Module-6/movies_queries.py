@@ -1,3 +1,17 @@
+"""
+Title: movies_queries.py
+Author: Timothy Martin
+Course: CSD-310 Database Development and Use
+Module: 6 - Movies Table Queries
+Date: July 1, 2026
+
+Description:
+This program connects to a MySQL database named "movies" using credentials
+stored in a .env file. It executes multiple SQL SELECT queries using a cursor
+to retrieve and display data from the studio, genre, and film tables.
+"""
+
+
 import mysql.connector
 from mysql.connector import errorcode
 
