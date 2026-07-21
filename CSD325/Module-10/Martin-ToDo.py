@@ -1,3 +1,10 @@
+"""
+To-Do List Application
+by Timothy Martin
+CSD 325 - Module 10
+July 21, 2026
+"""
+
 import tkinter as tk
 import tkinter.messagebox as msg
 
